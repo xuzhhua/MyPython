@@ -13,7 +13,14 @@ mail_pass="用户密码"   #口令
   
 sender = '发送邮件地址'
 receivers = ['接受邮件地址']  # 接收邮件，可设置为ß你的QQ邮箱或者其他邮箱
- 
+
+# message = MIMEText('邮件内容', 'plain', 'utf-8')
+# message['From'] = Header("xxxx@xxx.com", 'utf-8')
+# message['To'] =  Header("xxxx@xxx.com", 'utf-8')
+
+# 网上搜到的程序大多是以上的内容。我自己在测试过程中发现这样发送，高概率会被smtp服务器识别为垃圾邮件。
+# 如果你是像我一样只是为了一些目的用邮件通知自己，不妨简单一些。
+
 message = MIMEText('正在进行的作业（' + sys.argv[1] + '）已经结束')
 message['From'] = Header("发送邮件地址")
 message['To'] =  Header("接受邮件地址")
